@@ -303,7 +303,9 @@ h1 em {
 }
 
 .center-icon {
-	font-size: 2.5rem;
+	  width: 80px;
+		object-fit: contain;
+
 }
 
 .center-label {

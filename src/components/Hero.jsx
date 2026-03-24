@@ -33,7 +33,11 @@ export default function Hero() {
 						<div className="orbit-dot accent"></div>
 					</div>
 					<div className="center-box">
-						<div className="center-icon">🤖</div>
+						<img
+							src="assets/logo.png"
+							alt="Botomation Logo"
+							className="center-icon"
+						/>
 						<div className="center-label">Botomation</div>
 					</div>
 					<div className="floating-chip chip1">⚡ AI Agents</div>
