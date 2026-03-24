@@ -16,6 +16,67 @@
 	--card: #ffffff;
 }
 
+[data-theme="dark"] {
+	--bg: #0e0e0e;
+	--ink: #f7f5f0;
+	--ink-soft: #a8a8a8;
+	--accent: #c8f04d;
+	--accent2: #1a1a2e;
+	--border: rgba(247, 245, 240, 0.1);
+	--card: #1a1a1a;
+}
+
+[data-theme="dark"] nav {
+	background: rgba(14, 14, 14, 0.85);
+}
+
+[data-theme="dark"] .hero-bg {
+	background:
+		radial-gradient(
+			ellipse 60% 60% at 80% 50%,
+			rgba(200, 240, 77, 0.08) 0%,
+			transparent 70%
+		),
+		radial-gradient(
+			ellipse 40% 40% at 10% 80%,
+			rgba(26, 26, 46, 0.15) 0%,
+			transparent 60%
+		);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] #about {
+	color: #0e0e0e;
+}
+
+[data-theme="dark"] #about h2 {
+	color: #0e0e0e;
+}
+
+[data-theme="dark"] .service-card:hover {
+	color: #0e0e0e;
+}
+
+[data-theme="dark"] .service-card:hover .service-title,
+[data-theme="dark"] .service-card:hover .service-desc {
+	color: #0e0e0e;
+}
+
+[data-theme="dark"] .service-card:hover .service-num {
+	color: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .orbit-ring {
+	border-color: rgba(247, 245, 240, 0.2);
+}
+
+[data-theme="dark"] .orbit-dot.accent {
+	background: #c8f04d;
+}
+
 html {
 	scroll-behavior: smooth;
 }
@@ -86,6 +147,28 @@ nav {
 .nav-cta:hover {
 	background: var(--accent) !important;
 	color: var(--bg) !important;
+}
+
+.nav-right {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+	background: none;
+	border: none;
+	font-size: 1.2rem;
+	cursor: pointer;
+	padding: 0.5rem;
+	border-radius: 50%;
+	transition: background 0.2s;
+	color: var(--ink);
+}
+
+.theme-toggle:hover {
+	background: var(--border);
 }
 
 /* HERO */
@@ -303,9 +386,8 @@ h1 em {
 }
 
 .center-icon {
-	  width: 80px;
-		object-fit: contain;
-
+	width: 80px;
+	object-fit: contain;
 }
 
 .center-label {
@@ -525,6 +607,10 @@ h2 {
 	margin-top: 1rem;
 }
 
+[data-theme="dark"] .about-body p {
+	color: var(--accent2);
+}
+
 .about-highlights {
 	display: flex;
 	flex-direction: column;
@@ -561,13 +647,19 @@ h2 {
 	margin-bottom: 0.3rem;
 	color: white;
 }
-
 .hl-desc {
 	font-size: 0.825rem;
 	color: rgba(255, 255, 255, 0.55);
 	line-height: 1.6;
 }
 
+[data-theme="dark"] .hl-title {
+	color: black;
+}
+
+[data-theme="dark"] .hl-desc {
+	color: var(--accent2);
+}
 /* PORTFOLIO */
 #portfolio {
 	background: var(--bg);
