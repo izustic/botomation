@@ -1,4 +1,8 @@
 import { useState } from "react";
+import emailjs from "emailjs-com";
+
+// Initialize EmailJS with public key from environment
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 export default function Contact() {
 	const [formData, setFormData] = useState({
@@ -23,11 +27,38 @@ export default function Contact() {
 		}));
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setSubmitBtn({ text: "Sending...", disabled: true, bg: "" });
+		const fullName = `${formData.fname} ${formData.lname}`.trim();
 
-		setTimeout(() => {
+		try {
+			// Send admin notification
+			await emailjs.send(
+				import.meta.env.VITE_EMAILJS_SERVICE_ID,
+				import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+				{
+					to_email: "izuchukwuobi997@gmail.com",
+					from_name: `${formData.fname} ${formData.lname}`,
+					from_email: formData.email,
+					service_type: formData.service,
+					message: formData.message,
+				},
+			);
+
+			// Send auto-reply to sender
+			await emailjs.send(
+				import.meta.env.VITE_EMAILJS_SERVICE_ID,
+				import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID,
+				{
+					to_email: formData.email,
+					to_name: fullName || "there",
+					from_name: "Botomation Team",
+					service_type: formData.service,
+					message: formData.message,
+				},
+			);
+
 			setSubmitBtn({ text: "✓ Message Sent!", disabled: true, bg: "#22c55e" });
 			setTimeout(() => {
 				setSubmitBtn({ text: "Send Message →", disabled: false, bg: "" });
@@ -39,7 +70,17 @@ export default function Contact() {
 					message: "",
 				});
 			}, 3000);
-		}, 1200);
+		} catch (error) {
+			console.error("Failed to send email:", error);
+			setSubmitBtn({
+				text: "✗ Failed to send",
+				disabled: false,
+				bg: "#ef4444",
+			});
+			setTimeout(() => {
+				setSubmitBtn({ text: "Send Message →", disabled: false, bg: "" });
+			}, 3000);
+		}
 	};
 
 	return (
