@@ -97,7 +97,8 @@ export default function Contact() {
 						<div className="c-icon">📧</div>
 						<div>
 							<div className="c-label">Email</div>
-							<div className="c-val">hello@botomation.io</div>
+							{/* <div className="c-val">hello@botomation.io</div> */}
+							<div className="c-val">izuchukwuobi997@gmail.com</div>
 						</div>
 					</div>
 					<div className="c-item">
