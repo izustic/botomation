@@ -19,16 +19,65 @@ export default function Contact() {
 		bg: "",
 	});
 
+	const [errors, setErrors] = useState({});
+
+	const validateForm = () => {
+		const newErrors = {};
+
+		// First Name validation
+		if (!formData.fname.trim()) {
+			newErrors.fname = "First name is required";
+		}
+
+		// Last Name validation
+		if (!formData.lname.trim()) {
+			newErrors.lname = "Last name is required";
+		}
+
+		// Email validation
+		if (!formData.email.trim()) {
+			newErrors.email = "Email is required";
+		} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+			newErrors.email = "Please enter a valid email address";
+		}
+
+		// Service validation
+		if (!formData.service.trim()) {
+			newErrors.service = "Please select a service";
+		}
+
+		// Message validation
+		if (!formData.message.trim()) {
+			newErrors.message = "Please tell us about your project";
+		}
+
+		setErrors(newErrors);
+		return Object.keys(newErrors).length === 0;
+	};
+
 	const handleChange = (e) => {
 		const { id, value } = e.target;
 		setFormData((prev) => ({
 			...prev,
 			[id]: value,
 		}));
+		// Clear error for this field when user starts typing
+		if (errors[id]) {
+			setErrors((prev) => ({
+				...prev,
+				[id]: "",
+			}));
+		}
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		// Validate form before submission
+		if (!validateForm()) {
+			return;
+		}
+
 		setSubmitBtn({ text: "Sending...", disabled: true, bg: "" });
 		const fullName = `${formData.fname} ${formData.lname}`.trim();
 
@@ -128,7 +177,11 @@ export default function Contact() {
 								placeholder="John"
 								value={formData.fname}
 								onChange={handleChange}
+								className={errors.fname ? "error" : ""}
 							/>
+							{errors.fname && (
+								<span className="error-message">{errors.fname}</span>
+							)}
 						</div>
 						<div className="field">
 							<label htmlFor="lname">Last Name</label>
@@ -138,7 +191,11 @@ export default function Contact() {
 								placeholder="Doe"
 								value={formData.lname}
 								onChange={handleChange}
+								className={errors.lname ? "error" : ""}
 							/>
+							{errors.lname && (
+								<span className="error-message">{errors.lname}</span>
+							)}
 						</div>
 					</div>
 					<div className="field">
@@ -149,7 +206,11 @@ export default function Contact() {
 							placeholder="john@company.com"
 							value={formData.email}
 							onChange={handleChange}
+							className={errors.email ? "error" : ""}
 						/>
+						{errors.email && (
+							<span className="error-message">{errors.email}</span>
+						)}
 					</div>
 					<div className="field">
 						<label htmlFor="service">What do you need?</label>
@@ -157,6 +218,7 @@ export default function Contact() {
 							id="service"
 							value={formData.service}
 							onChange={handleChange}
+							className={errors.service ? "error" : ""}
 						>
 							<option value="">Select a service...</option>
 							<option>AI Agent</option>
@@ -164,6 +226,9 @@ export default function Contact() {
 							<option>Workflow Automation</option>
 							<option>Not sure yet — let's talk</option>
 						</select>
+						{errors.service && (
+							<span className="error-message">{errors.service}</span>
+						)}
 					</div>
 					<div className="field">
 						<label htmlFor="message">Tell me about your project</label>
@@ -172,7 +237,11 @@ export default function Contact() {
 							placeholder="Describe what you're trying to automate or build..."
 							value={formData.message}
 							onChange={handleChange}
+							className={errors.message ? "error" : ""}
 						></textarea>
+						{errors.message && (
+							<span className="error-message">{errors.message}</span>
+						)}
 					</div>
 					<button
 						type="submit"

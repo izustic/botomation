@@ -883,6 +883,21 @@ textarea {
 	cursor: not-allowed;
 }
 
+/* Form Validation */
+input.error,
+textarea.error,
+select.error {
+	border-color: #ef4444;
+	box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+	font-size: 0.75rem;
+	color: #ef4444;
+	margin-top: 0.25rem;
+	display: block;
+}
+
 /* FOOTER */
 footer {
 	border-top: 1px solid var(--border);
