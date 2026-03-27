@@ -1,6 +1,6 @@
-# Botomation React Project
+# Botomotion React Project
 
-A modern React + Vite conversion of the Botomation landing page. This project features AI automation and chatbot solutions with smooth animations and interactive components.
+A modern React + Vite conversion of the Botomotion landing page. This project features AI automation and chatbot solutions with smooth animations and interactive components.
 
 ## 🚀 Features
 

@@ -4,7 +4,7 @@ export default function Navigation() {
 	return (
 		<nav>
 			<a href="#" className="logo">
-				Bot<span>omation</span>
+				Bot<span>omotion</span>
 			</a>
 			<div className="nav-right">
 				<ul className="nav-links">

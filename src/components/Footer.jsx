@@ -2,10 +2,10 @@ export default function Footer() {
 	return (
 		<footer>
 			<a href="#" className="footer-logo">
-				Botomation
+				Botomotion
 			</a>
 			<span className="footer-copy">
-				© 2025 Botomation. All rights reserved.
+				© 2025 Botomotion. All rights reserved.
 			</span>
 			<div className="footer-links">
 				<a href="#services">Services</a>

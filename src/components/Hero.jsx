@@ -12,7 +12,7 @@ export default function Hero() {
 					Scale further.
 				</h1>
 				<p className="hero-sub">
-					Botomation helps businesses streamline operations with intelligent AI
+					Botomotion helps businesses streamline operations with intelligent AI
 					agents and conversational chatbots — so you can focus on what matters.
 				</p>
 				<div className="hero-btns">
@@ -35,10 +35,10 @@ export default function Hero() {
 					<div className="center-box">
 						<img
 							src="assets/logo.png"
-							alt="Botomation Logo"
+							alt="Botomotion Logo"
 							className="center-icon"
 						/>
-						<div className="center-label">Botomation</div>
+						<div className="center-label">Botomotion</div>
 					</div>
 					<div className="floating-chip chip1">⚡ AI Agents</div>
 					<div className="floating-chip chip2">💬 Chatbots</div>

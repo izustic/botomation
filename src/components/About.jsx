@@ -20,11 +20,11 @@ export default function About() {
 	return (
 		<section id="about">
 			<div className="reveal">
-				<p className="section-tag">About Botomation</p>
+				<p className="section-tag">About Botomotion</p>
 				<h2>Automation that actually works.</h2>
 				<div className="about-body">
 					<p>
-						Botomation is a solo practice built on one belief: automation should
+						Botomotion is a solo practice built on one belief: automation should
 						feel effortless for the people using it, and powerful under the
 						hood.
 					</p>
@@ -35,7 +35,7 @@ export default function About() {
 					</p>
 					<p>
 						Whether you're a startup looking to punch above your weight, or an
-						established business drowning in manual processes, Botomation turns
+						established business drowning in manual processes, Botomotion turns
 						the complex into simple.
 					</p>
 				</div>

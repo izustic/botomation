@@ -102,7 +102,7 @@ export default function Contact() {
 				{
 					to_email: formData.email,
 					to_name: fullName || "there",
-					from_name: "Botomation Team",
+					from_name: "Botomotion Team",
 					service_type: formData.service,
 					message: formData.message,
 				},
@@ -146,7 +146,7 @@ export default function Contact() {
 						<div className="c-icon">📧</div>
 						<div>
 							<div className="c-label">Email</div>
-							{/* <div className="c-val">hello@botomation.io</div> */}
+							{/* <div className="c-val">hello@botomotion.io</div> */}
 							<div className="c-val">izuchukwuobi997@gmail.com</div>
 						</div>
 					</div>
