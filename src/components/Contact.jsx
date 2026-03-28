@@ -87,7 +87,7 @@ export default function Contact() {
 				import.meta.env.VITE_EMAILJS_SERVICE_ID,
 				import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
 				{
-					to_email: "izuchukwuobi997@gmail.com",
+					to_email: "hello@botomotion.com",
 					from_name: `${formData.fname} ${formData.lname}`,
 					from_email: formData.email,
 					service_type: formData.service,
@@ -146,8 +146,7 @@ export default function Contact() {
 						<div className="c-icon">📧</div>
 						<div>
 							<div className="c-label">Email</div>
-							{/* <div className="c-val">hello@botomotion.io</div> */}
-							<div className="c-val">izuchukwuobi997@gmail.com</div>
+							<div className="c-val">hello@botomotion.com</div>
 						</div>
 					</div>
 					<div className="c-item">
