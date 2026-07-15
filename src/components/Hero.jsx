@@ -1,3 +1,5 @@
+import { MessageCircle, Workflow, Zap } from "lucide-react";
+
 export default function Hero() {
 	return (
 		<section id="hero">
@@ -40,9 +42,9 @@ export default function Hero() {
 						/>
 						<div className="center-label">Botomotion</div>
 					</div>
-					<div className="floating-chip chip1">⚡ AI Agents</div>
-					<div className="floating-chip chip2">💬 Chatbots</div>
-					<div className="floating-chip chip3">🔄 Automation</div>
+					<div className="floating-chip chip1"><Zap aria-hidden="true" /> AI Agents</div>
+					<div className="floating-chip chip2"><MessageCircle aria-hidden="true" /> Chatbots</div>
+					<div className="floating-chip chip3"><Workflow aria-hidden="true" /> Automation</div>
 				</div>
 			</div>
 		</section>

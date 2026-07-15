@@ -1,8 +1,10 @@
+import { Bot, MessageCircle, Workflow } from "lucide-react";
+
 export default function Portfolio() {
 	const projects = [
 		{
 			id: 1,
-			icon: "🤖",
+			icon: Bot,
 			bgGradient: "linear-gradient(135deg, #e8f5e9, #c8e6c9)",
 			type: "AI Agent",
 			title: "Research & Report Agent",
@@ -11,7 +13,7 @@ export default function Portfolio() {
 		},
 		{
 			id: 2,
-			icon: "💬",
+			icon: MessageCircle,
 			bgGradient: "linear-gradient(135deg, #e3f2fd, #bbdefb)",
 			type: "Chatbot",
 			title: "Customer Support Bot",
@@ -20,7 +22,7 @@ export default function Portfolio() {
 		},
 		{
 			id: 3,
-			icon: "⚙️",
+			icon: Workflow,
 			bgGradient: "linear-gradient(135deg, #fce4ec, #f8bbd0)",
 			type: "Automation",
 			title: "Lead Qualification Pipeline",
@@ -40,10 +42,11 @@ export default function Portfolio() {
 				</p>
 			</div>
 			<div className="portfolio-grid reveal">
-				{projects.map((project) => (
-					<div key={project.id} className="portfolio-card">
+				{projects.map((project) => {
+					const Icon = project.icon;
+					return <div key={project.id} className="portfolio-card">
 						<div className="p-thumb" style={{ background: project.bgGradient }}>
-							{project.icon}
+							<Icon aria-hidden="true" />
 						</div>
 						<div className="p-body">
 							<div className="p-type">{project.type}</div>
@@ -57,8 +60,8 @@ export default function Portfolio() {
 								))}
 							</div>
 						</div>
-					</div>
-				))}
+					</div>;
+				})}
 			</div>
 		</section>
 	);

@@ -1,17 +1,19 @@
+import { BrainCircuit, Rocket, Target } from "lucide-react";
+
 export default function About() {
 	const highlights = [
 		{
-			icon: "🎯",
+			icon: Target,
 			title: "Precision-built for your use case",
 			desc: "No off-the-shelf solutions. Every project starts with understanding your exact workflow before a single line of code is written.",
 		},
 		{
-			icon: "🧠",
+			icon: BrainCircuit,
 			title: "AI-native from the ground up",
 			desc: "Built using the latest models, frameworks, and tools — not bolt-on AI as an afterthought.",
 		},
 		{
-			icon: "🚀",
+			icon: Rocket,
 			title: "Fast delivery, clean handoffs",
 			desc: "Ship fast without sacrificing quality. You get working software, documentation, and full ownership.",
 		},
@@ -41,15 +43,16 @@ export default function About() {
 				</div>
 			</div>
 			<div className="about-highlights reveal">
-				{highlights.map((highlight, idx) => (
-					<div key={idx} className="highlight">
-						<div className="hl-icon">{highlight.icon}</div>
+				{highlights.map((highlight) => {
+					const Icon = highlight.icon;
+					return <div key={highlight.title} className="highlight">
+						<div className="hl-icon"><Icon aria-hidden="true" /></div>
 						<div>
 							<div className="hl-title">{highlight.title}</div>
 							<div className="hl-desc">{highlight.desc}</div>
 						</div>
-					</div>
-				))}
+					</div>;
+				})}
 			</div>
 		</section>
 	);

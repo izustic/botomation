@@ -1,5 +1,6 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import { Check, Clock3, LoaderCircle, Mail, MapPin, Send, X } from "lucide-react";
 
 // Initialize EmailJS with public key from environment
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
@@ -14,7 +15,8 @@ export default function Contact() {
 	});
 
 	const [submitBtn, setSubmitBtn] = useState({
-		text: "Send Message →",
+		text: "Send Message",
+		status: "idle",
 		disabled: false,
 		bg: "",
 	});
@@ -78,7 +80,7 @@ export default function Contact() {
 			return;
 		}
 
-		setSubmitBtn({ text: "Sending...", disabled: true, bg: "" });
+		setSubmitBtn({ text: "Sending...", status: "sending", disabled: true, bg: "" });
 		const fullName = `${formData.fname} ${formData.lname}`.trim();
 
 		try {
@@ -108,9 +110,9 @@ export default function Contact() {
 				},
 			);
 
-			setSubmitBtn({ text: "✓ Message Sent!", disabled: true, bg: "#22c55e" });
+			setSubmitBtn({ text: "Message Sent!", status: "success", disabled: true, bg: "#22c55e" });
 			setTimeout(() => {
-				setSubmitBtn({ text: "Send Message →", disabled: false, bg: "" });
+				setSubmitBtn({ text: "Send Message", status: "idle", disabled: false, bg: "" });
 				setFormData({
 					fname: "",
 					lname: "",
@@ -122,12 +124,13 @@ export default function Contact() {
 		} catch (error) {
 			console.error("Failed to send email:", error);
 			setSubmitBtn({
-				text: "✗ Failed to send",
+				text: "Failed to send",
+				status: "error",
 				disabled: false,
 				bg: "#ef4444",
 			});
 			setTimeout(() => {
-				setSubmitBtn({ text: "Send Message →", disabled: false, bg: "" });
+				setSubmitBtn({ text: "Send Message", status: "idle", disabled: false, bg: "" });
 			}, 3000);
 		}
 	};
@@ -143,21 +146,21 @@ export default function Contact() {
 				</p>
 				<div className="contact-detail">
 					<div className="c-item">
-						<div className="c-icon">📧</div>
+						<div className="c-icon"><Mail aria-hidden="true" /></div>
 						<div>
 							<div className="c-label">Email</div>
 							<div className="c-val">hello@botomotion.com</div>
 						</div>
 					</div>
 					<div className="c-item">
-						<div className="c-icon">📍</div>
+						<div className="c-icon"><MapPin aria-hidden="true" /></div>
 						<div>
 							<div className="c-label">Location</div>
 							<div className="c-val">Lagos, Nigeria · Remote Worldwide</div>
 						</div>
 					</div>
 					<div className="c-item">
-						<div className="c-icon">⏱️</div>
+						<div className="c-icon"><Clock3 aria-hidden="true" /></div>
 						<div>
 							<div className="c-label">Response time</div>
 							<div className="c-val">Within 24 hours</div>
@@ -248,6 +251,10 @@ export default function Contact() {
 						disabled={submitBtn.disabled}
 						style={{ background: submitBtn.bg || "" }}
 					>
+						{submitBtn.status === "sending" && <LoaderCircle className="spin" aria-hidden="true" />}
+						{submitBtn.status === "success" && <Check aria-hidden="true" />}
+						{submitBtn.status === "error" && <X aria-hidden="true" />}
+						{submitBtn.status === "idle" && <Send aria-hidden="true" />}
 						{submitBtn.text}
 					</button>
 				</form>

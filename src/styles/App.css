@@ -167,6 +167,8 @@ nav {
 	color: var(--ink);
 }
 
+.theme-toggle svg { width: 20px; height: 20px; display: block; }
+
 .theme-toggle:hover {
 	background: var(--border);
 }
@@ -407,7 +409,12 @@ h1 em {
 	font-weight: 500;
 	white-space: nowrap;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
 }
+
+.floating-chip svg { width: 14px; height: 14px; }
 
 .chip1 {
 	top: 10%;
@@ -539,6 +546,8 @@ h2 {
 	transition: background 0.25s;
 }
 
+.service-icon svg { width: 25px; height: 25px; }
+
 .service-num {
 	font-size: 0.7rem;
 	font-weight: 500;
@@ -641,6 +650,8 @@ h2 {
 	margin-top: 0.1rem;
 }
 
+.hl-icon svg { width: 24px; height: 24px; }
+
 .hl-title {
 	font-weight: 500;
 	font-size: 0.95rem;
@@ -695,6 +706,8 @@ h2 {
 	position: relative;
 	overflow: hidden;
 }
+
+.p-thumb svg { width: 52px; height: 52px; stroke-width: 1.6; }
 
 .p-thumb::after {
 	content: "";
@@ -784,6 +797,8 @@ h2 {
 	flex-shrink: 0;
 }
 
+.c-icon svg { width: 18px; height: 18px; }
+
 .c-label {
 	font-size: 0.7rem;
 	color: var(--ink-soft);
@@ -867,7 +882,15 @@ textarea {
 	transition:
 		background 0.2s,
 		transform 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
 }
+
+.form-submit svg { width: 17px; height: 17px; }
+.spin { animation: icon-spin 0.8s linear infinite; }
+@keyframes icon-spin { to { transform: rotate(360deg); } }
 
 .form-submit:hover {
 	background: var(--accent);
